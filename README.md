@@ -13,13 +13,10 @@ The data is automatically scraped and updated **every 6 hours** via GitHub Actio
 
 | Provider | Country | EPG URL (Raw Link) |
 | :--- | :---: | :--- |
-| **Singtel** | 🇸🇬 SG | `https://raw.githubusercontent.com/USERNAME/REPO/main/singtel.xml` |
-| **Starhub** | 🇸🇬 SG | `https://raw.githubusercontent.com/USERNAME/REPO/main/starhub.xml` |
-| **Vidio** | 🇮🇩 ID | `https://raw.githubusercontent.com/USERNAME/REPO/main/vidio.xml` |
-| **Vision+** | 🇮🇩 ID | `https://raw.githubusercontent.com/USERNAME/REPO/main/visionplus.xml` |
-| **All Combined**| 🌍 | `https://raw.githubusercontent.com/USERNAME/REPO/main/all.xml` |
-
-> **Note:** Replace `USERNAME` and `REPO` with your actual GitHub username and repository name.
+| **3BB GIGA TV** | TH | `https://github.com/jeffrybp/epgtv/raw/refs/heads/main/public/3bbtvcoth.xml.gz` |
+| **Starhub** | SG | `https://github.com/jeffrybp/epgtv/raw/refs/heads/main/public/starhubtvplussg.xml.gz` |
+| **Vidio** | ID | `https://github.com/jeffrybp/epgtv/raw/refs/heads/main/public/vidiocomid.xml.gz` |
+| **All Combined**| 🌍 | `https://github.com/jeffrybp/epgtv/raw/refs/heads/main/public/all.xml.gz` |
 
 ## 🛠️ Usage
 1. Copy the **Raw Link** from the table above.
