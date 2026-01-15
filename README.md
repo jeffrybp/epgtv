@@ -7,7 +7,7 @@
 This repository provides automated **Electronic Program Guide (EPG)** data (XMLTV format) for various Pay TV providers worldwide. Ideally suited for IPTV players like TiviMate, OTT Navigator, Televizo, etc.
 
 ## ⚡ Update Schedule
-The data is automatically scraped and updated **every 6 hours** via GitHub Actions to ensure the schedule is always current.
+The data is automatically scraped and updated **every 6 hours** to ensure the schedule is always current.
 
 ## 📡 Supported Providers
 
