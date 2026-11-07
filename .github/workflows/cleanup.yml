@@ -1,0 +1,60 @@
+name: Periodic Repo Cleanup
+
+on:
+  schedule:
+    - cron: '0 20 * * *'
+  workflow_dispatch:
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      actions: write
+      deployments: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 
+
+      - name: Reset Git History
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # 1. Reset commit menjadi 1
+          git checkout --orphan temp-branch
+          git add -A
+          git commit -m "Cleanup"
+
+          git branch -D main
+          git branch -m main
+
+          git push origin main --force
+
+      - name: Delete Deployments
+        run: |
+          deployments=$(gh api repos/${{ github.repository }}/deployments --paginate -q '.[].id')
+          
+          for id in $deployments; do
+            gh api -X POST repos/${{ github.repository }}/deployments/$id/statuses \
+              -f state='inactive' -H "Accept: application/vnd.github.antiman-preview+json" || true
+
+            gh api -X DELETE repos/${{ github.repository }}/deployments/$id || true
+            echo "Deleted deployment ID: $id"
+          done
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Delete workflow runs
+        run: |
+          CURRENT_RUN_ID=${{ github.run_id }}
+          
+          gh run list --workflow cleanup.yml --limit 100 --json databaseId | \
+          jq -r ".[] | select(.databaseId != $CURRENT_RUN_ID) | .databaseId" | \
+          xargs -r -I{} gh run delete {}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
