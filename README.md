@@ -1,0 +1,31 @@
+# 📺 Global EPG Data
+
+![Update Frequency](https://img.shields.io/badge/updates-every_6_hours-brightgreen)
+![EPG Status](https://img.shields.io/badge/status-active-blue)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
+
+This repository provides automated **Electronic Program Guide (EPG)** data (XMLTV format) for various Pay TV providers worldwide. Ideally suited for IPTV players like TiviMate, OTT Navigator, Televizo, etc.
+
+## ⚡ Update Schedule
+The data is automatically scraped and updated **every 6 hours** to ensure the schedule is always current.
+
+## 📡 Supported Providers
+
+| Provider | Country | EPG URL (Raw Link) |
+| :--- | :---: | :--- |
+| **3BB GIGA TV** | TH | `https://github.com/jeffrybp/epgtv/raw/refs/heads/main/public/3bbtvcoth.xml.gz` |
+| **Starhub** | SG | `https://github.com/jeffrybp/epgtv/raw/refs/heads/main/public/starhubtvplussg.xml.gz` |
+| **Vidio** | ID | `https://github.com/jeffrybp/epgtv/raw/refs/heads/main/public/vidiocomid.xml.gz` |
+| **All Combined**| 🌍 | `https://github.com/jeffrybp/epgtv/raw/refs/heads/main/public/all.xml.gz` |
+
+## 🛠️ Usage
+1. Copy the **Raw Link** from the table above.
+2. Open your IPTV Player.
+3. Go to Settings > EPG > Add Source.
+4. Paste the URL.
+
+## 🤝 Contribution
+Feel free to open an issue or pull request if you find any bugs or want to request a new provider.
+
+## ⚠️ Disclaimer
+This repository is for educational and personal use only. All channel data and logos belong to their respective copyright owners. I do not host any streams, only schedule information.
